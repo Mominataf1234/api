@@ -14,7 +14,7 @@ const server = Hapi.Server({
 const init = async () => {
 
     await server.start();
-    console.log("Server up no porto: " + port);
+    console.log("Server up on port: " + port);
 
 }
 
