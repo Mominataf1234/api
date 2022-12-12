@@ -13,8 +13,8 @@ const server = Hapi.Server({
 // Initiate Server
 const init = async () => {
 
-   await server.start();
-   console.log("Server up on port: " + port);
+    await server.start();
+    console.log("Server up on port: " + port);
 
 }
 
@@ -24,46 +24,41 @@ require('./routes/routes.js')(server);//
 //Initiate app
 init();
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, h) {
 
-  var data = {
-            msg: 'API calculator'
-        };
-        return data;
-    }
-});
+calculator to connect api and server
 
+module.exports = function (server) {
 
-
-
-calculator api to connect to this server
-module.exports = function (server) 
     //route Sum
     server.route({
         method: 'GET',
         path: '/sum/{num1}/{num2}',
         handler: function (pedido) {
+
             const num1 = parseInt(pedido.params.num1);
             const num2 = parseInt(pedido.params.num2);
+
             var data = {
                 result: num1 + num2
             };
+
             return data;
         }
     });
+
     //route Subtraction
     server.route({
         method: 'GET',
         path: '/sub/{num1}/{num2}',
         handler: function (pedido) {
+
             const num1 = parseInt(pedido.params.num1);
             const num2 = parseInt(pedido.params.num2);
+
             var data = {
                 result: num1 - num2
             };
+
             return data;
         }
     });
@@ -72,24 +67,31 @@ module.exports = function (server)
         method: 'GET',
         path: '/mul/{num1}/{num2}',
         handler: function (pedido) {
+
             const num1 = parseInt(pedido.params.num1);
             const num2 = parseInt(pedido.params.num2);
+
             var data = {
                 result: num1 * num2
             };
+
             return data;
         }
     });
+
     //route Division
     server.route({
         method: 'GET',
         path: '/div/{num1}/{num2}',
         handler: function (pedido) {
+
             const num1 = parseInt(pedido.params.num1);
             const num2 = parseInt(pedido.params.num2);
+
             var data = {
                 result: num1 / num2
             };
+
             return data;
         }
     });
