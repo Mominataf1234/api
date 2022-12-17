@@ -45,7 +45,7 @@ const init = async () => {
 }
 
 //Define routes
-require('./routes/routes.js')(server);//
+require('routes.js')(server);//
 
 //Initiate app
 init();
